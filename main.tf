@@ -51,8 +51,8 @@ resource "aws_instance" "nginx_instance" {
     Name = "Nginx-Server"
   }
 
-  # Wait for the EC2 instance to be ready before applying other actions
-  wait_for_capacity_timeout = "0"
+  # # Wait for the EC2 instance to be ready before applying other actions
+  # wait_for_capacity_timeout = "0"
 }
 
 # Output the public IP of the EC2 instance
