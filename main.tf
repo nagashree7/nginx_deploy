@@ -39,7 +39,7 @@ resource "aws_instance" "nginx_instance" {
               #!/bin/bash
               yum update -y
               yum install -y nginx
-              echo "<h1>Hello from Terraform Nginx on Amazon Linux 2!</h1>" > /usr/share/nginx/html/index.html
+              echo "<h1>Welcome to Cloud Practice</h1>" > /usr/share/nginx/html/index.html
               systemctl start nginx
               systemctl enable nginx
               EOF
@@ -48,11 +48,6 @@ resource "aws_instance" "nginx_instance" {
     Name = "Nginx-Server"
   }
 }
-
-
-  # # Wait for the EC2 instance to be ready before applying other actions
-  # wait_for_capacity_timeout = "0"
-
 
 # Output the public IP of the EC2 instance
 output "instance_public_ip" {
