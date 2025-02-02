@@ -32,7 +32,7 @@ resource "aws_security_group" "ec2_sg" {
 resource "aws_instance" "nginx_instance" {
   ami                    = "ami-0c614dee691cbbf37"  # Update with a valid Ubuntu AMI ID
   instance_type          = "t2.micro"
-  security_groups        = [aws_security_group.ec2_sg.name]  # FIXED: Use `.name`, not `.id`
+  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   associate_public_ip_address = true
 
   user_data = <<-EOF
