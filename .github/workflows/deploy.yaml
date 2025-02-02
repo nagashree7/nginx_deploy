@@ -25,15 +25,12 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
-      working-directory: terraform
+      working-directory: ./  # Since main.tf is in the root of the repository, use './'
 
     - name: Terraform Plan
       run: terraform plan
-      working-directory: terraform
+      working-directory: ./  # Use './' for the same reason as above
 
     - name: Terraform Apply
       run: terraform apply -auto-approve
-      working-directory: terraform
-
-    # - name: Show EC2 Instance IP
-    #   run: echo "EC2 Public IP: $(terraform output instance_public_ip)"
+      working-directory: ./  # Use './' for the same reason as above
