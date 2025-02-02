@@ -33,8 +33,8 @@ resource "aws_security_group" "ec2_sg" {
 resource "aws_instance" "nginx_instance" {
   ami                    = "ami-0c55b159cbfafe1f0"  # Update with a valid Ubuntu AMI ID
   instance_type          = "t2.micro"
-  #key_name               = aws_key_pair.ec2_key.key_name
-  security_group         = aws_security_group.ec2_sg.id
+  #key_name              = aws_key_pair.ec2_key.key_name
+  security_groups         = aws_security_group.ec2_sg.id
   associate_public_ip_address = true
 
   # Install and configure Nginx using user data
