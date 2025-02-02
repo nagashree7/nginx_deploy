@@ -30,16 +30,16 @@ resource "aws_security_group" "ec2_sg" {
 }
 
 resource "aws_instance" "nginx_instance" {
-  ami                    = "ami-0c55b159cbfafe1f0"  # Update with a valid Ubuntu AMI ID
+  ami                    = "ami-0c614dee691cbbf37"  # Update with a valid Ubuntu AMI ID
   instance_type          = "t2.micro"
   security_groups        = [aws_security_group.ec2_sg.name]  # FIXED: Use `.name`, not `.id`
   associate_public_ip_address = true
 
   user_data = <<-EOF
               #!/bin/bash
-              apt-get update -y
-              apt-get install nginx -y
-              echo "<h1>Hello from Terraform Nginx!</h1>" > /var/www/html/index.html
+              yum update -y
+              yum install -y nginx
+              echo "<h1>Hello from Terraform Nginx on Amazon Linux 2!</h1>" > /usr/share/nginx/html/index.html
               systemctl start nginx
               systemctl enable nginx
               EOF
